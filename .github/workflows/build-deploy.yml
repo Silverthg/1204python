@@ -15,9 +15,9 @@ jobs:
           tags: ghcr.io/${{ github.actor }}/bot:latest
       - uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.SERVER }}
+          host: ${{ secrets.IP }}
           username: student
           key: ${{ secrets.KEY }}
           script: |
-            echo ${{ secrets.TOKEN }} | docker login --username ${{ github.actor }} --password-stdin ghcr.io
+            echo ${{ secrets.PAT }} | docker login --username ${{ github.actor }} --password-stdin ghcr.io
             docker run --rm --detach ghcr.io/${{ github.actor }}/bot:latest
