@@ -1,4 +1,4 @@
 FROM python:latest
-COPY ./1204python
-RUN pip install -r requirements.txt
-CMD ["python", "./echobot.py"]
+COPY . .
+RUN pip install python-telegram-bot
+CMD python echobot.py
